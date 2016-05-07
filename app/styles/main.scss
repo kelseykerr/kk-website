@@ -1,0 +1,406 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #777777;
+}
+
+.btn-social {
+  color: #777777;
+}
+
+  /* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .project-container {
+    max-width: 860px;
+  }
+}
+
+.project-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 1000px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 1300px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.top-overlay {
+  background-size: cover;
+  //background: rgb(80,105,135) center;
+  z-index: 2;
+  height: 100%;
+}
+
+.cover {
+  background: #16a6b6;
+  //background-image: url('/images/gray-lines.jpg'), linear-gradient(-150deg, #414141 0%, #525252 30%);
+  background: url('/images/gray-lines.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  //background-size: 100%;
+  justify-content: center;
+}
+
+section { height: 100vh;}
+
+
+.name-image {
+  width: 500px;
+  height: 247px;
+}
+
+.name-header {
+  position: absolute;
+  margin-top: 150px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.navbar {
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 20px;
+  transition: all ease .5s;
+  z-index: 99;
+  vertical-align: middle;
+  line-height: normal;
+  margin-top: 450px;
+  margin-bottom: 0px;
+}
+
+.navbar li {
+  display: inline;
+  list-style-type: none;
+  width: 1%;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.navbar li a {
+  padding: 20px 40px 10px 40px;
+  cursor: pointer;
+}
+
+.navbar li a:hover {
+  border-image-source: url("/images/gold.jpg");
+  border-image-slice: 1;
+  border-image-outset: 1;
+  border-width: 0px 0px 2px 0px;
+  border-image-repeat: round;
+  //border:1px solid #ee6557;
+}
+
+.nav-about {
+  width:70px;
+}
+
+.nav-projects {
+  width:100px;
+}
+
+.nav-resume {
+  width:80px;
+}
+
+.nav-contact {
+  width:90px;
+}
+
+.fix-to-top {
+  background: #454545;
+  position: fixed !important;
+  top: 0;
+  color: #ffffff;
+  height: 50px;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.project-item {
+  z-index: 1;
+  background-size: cover;
+  position: relative;
+  width: 50%;
+  height: 50%;
+  margin-bottom: 30px;
+}
+
+.project-link {
+  background: rgba(169,78,74,0.9);
+}
+
+.project-item:hover .overlay {
+  opacity: .8;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.project-item .overlay {
+  opacity: 0;
+  position: absolute;
+  background-color: #494C4E;
+  top: 0;
+  width: 453px;
+  z-index: 2;
+  display: block;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-item:hover .phone-overlay {
+  opacity: .8;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.project-item .phone-overlay {
+  opacity: 0;
+  position: absolute;
+  background-color: #494C4E;
+  top: 0;
+  width: 400px;
+  height: 400px;
+  z-index: 2;
+  display: block;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-responsive {
+  display: block;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* regex styling */
+.regex-field {
+  float: none;
+  height: 30px;
+}
+
+a.add-requirement {
+  float: right;
+  margin-left: 5px;
+  color: #006D86;
+}
+
+a.remove-requirement {
+  float: right;
+  margin-left: 5px;
+  color: #A6EEFF;
+}
+
+.match {
+  margin-left: 5px;
+  color: #006D86;
+  vertical-align:middle;
+}
+
+.no-match {
+  margin-left: 5px;
+  color: #A6EEFF;
+  vertical-align:middle;
+}
+
+.icon {
+  vertical-align:middle;
+}
+
+.btn {
+  background-color: #405067;
+  color: #ffffff !important;
+}
+
+.btn:hover {
+  background-color: #68788F;
+  color: #ffffff !important;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active:focus {
+  outline: none;
+}
+
+input {
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 2px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:active:focus {
+  outline: none;
+}
+
+select {
+  outline: none;
+  background: #ffffff;
+  border: 1px solid gray;
+  border-radius: 2px;
+  -webkit-appearance: none;
+}
+
+.project-page {
+  color: gray;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-header {
+  margin-bottom: 30px;
+}
+
+.project-close {
+  float: right;
+  padding-bottom: 30px;
+}
+
+.project-description {
+  margin-bottom: 30px;
+}
+
+.portfolio-photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 625px;
+  height: 350px;
+  margin-bottom: 30px;
+}
+
+.top-section {
+  margin-top: 400px;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.nested {
+  margin-left: -15px;
+}
+
+.footer {
+  height: 120px !important;
+}

@@ -1,0 +1,53 @@
+<div ng-controller="RegexCtrl" class="project-page">
+  <div class="project-header">
+  <a href="http://localhost:9000/#/#projects" class="project-close"><i class="fa fa-fw fa-times-circle-o fa-2x"></i></a>
+  <h2>Regular Expression Generator</h2>
+    </div>
+  <div class="project-description">
+    <p>This is a simple regular expression generator. I end up googling regular expressions whenever I need them, so I figured a generator would be useful. I'm not completely finished with this (for example, it doesn't do ordered sequences yet), but I'll update it as I make progress. Try it out below.</p>
+  </div>
+  <h4>my regex:</h4>
+
+  <form name="regexRequirements">
+    <button type="button" class="btn" ng-click="regexForm.addRequirement()"
+            ng-if="regexForm.regexRequirements.length == 0">add requirement
+    </button>
+    <div class="form-group" ng-repeat="requirement in regexForm.regexRequirements">
+    <span>
+    <label>must contain</label>
+    <select class="dropdown col-lg-4 regex-field"
+            ng-model="requirement.value"
+            ng-options="option as option for option in regexForm.characterOptions">
+    </select>
+      <input type="text" class="regex-field" ng-model="requirement.sequence" ng-if="regexForm.hasInput(requirement.value)">
+    <input type="number" class="col-lg-1 regex-field" ng-model="requirement.repeat">
+    <label>time(s)</label>
+            <a href="" ng-click="regexForm.removeRequirement(requirement)" class="remove-requirement"><i
+              class="fa fa-minus-square-o fa-2x"/></a>
+      <a href="" ng-click="regexForm.addRequirement()" class="add-requirement"><i
+        class="fa fa-plus-square-o fa-2x"/></a>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>have between</label>
+      <input type="number" class="col-lg-2 regex-field" ng-model="regexForm.minChars">
+      <label>and</label>
+      <input type="number" class="col-lg-2 regex-field" ng-model="regexForm.maxChars">
+      <label>characters.</label>
+    </div>
+  </form>
+  <button type="button" class="btn" ng-click="regexForm.calculateRegex()"
+          ng-if="regexForm.regexRequirements.length != 0">generate regex
+  </button>
+
+  <div ng-if="regexForm.regex != undefined && regexForm.regex.length > 0 && regexForm.regexRequirements.length > 0">
+    <div><h4>regex = {{regexForm.regex}} </h4></div>
+    <label>test my regex</label>
+    <input type="text" class="col-lg-6 regex-field" ng-model="regexForm.testString">
+    <span ng-if="regexForm.isMatch" class="match"><i class="icon fa fa-check-circle-o fa-2x"/> match</span>
+    <span ng-if="!regexForm.isMatch" class="no-match"> <i class="icon fa fa-times-circle-o fa-2x"/> no match</span>
+
+  </div>
+</div>
+
