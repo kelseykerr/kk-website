@@ -94,6 +94,11 @@ angular.module('personalWebsiteApp')
     };
 
     $scope.home = {
+
+      goToForm: function() {
+
+      },
+
       submitted: false,
 
       submitButtonDisabled: false,
