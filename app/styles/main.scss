@@ -138,10 +138,26 @@ body {
 
 section { height: 100vh;}
 
+@media (min-width: 200px) {
+  .name-image {
+    width: 350px;
+    height: 175px;
+  }
 
-.name-image {
-  width: 500px;
-  height: 247px;
+  .top-section {
+    margin-top: 300px;
+  }
+}
+
+@media (min-width: 500px) {
+  .name-image {
+    width: 500px;
+    height: 247px;
+  }
+
+  .top-section {
+    margin-top: 400px;
+  }
 }
 
 .name-header {
@@ -333,6 +349,7 @@ a.remove-requirement {
 
 .btn:focus {
   outline: none;
+  background-color: #405067;
 }
 
 .btn:active:focus {
@@ -389,10 +406,6 @@ select {
   margin-bottom: 30px;
 }
 
-.top-section {
-  margin-top: 400px;
-}
-
 .heading {
   margin-bottom: 20px;
 }
@@ -403,4 +416,18 @@ select {
 
 .footer {
   height: 120px !important;
+}
+
+.form-link {
+  cursor: pointer;
+}
+
+.form-control:focus {
+   border: 1px solid #68788F;
+   outline-color: #68788F;
+   box-shadow: inset 0 1px 1px rgba(104, 120, 143, 0), 0 0 8px rgba(104, 120, 143, 1);
+}
+
+.btn[disabled]:hover {
+  background-color: #405067;
 }

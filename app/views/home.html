@@ -4,7 +4,6 @@
     <div class="top-overlay">
       <div class="row">
         <div class="name-header">
-          <!--<img src="/images/name-logo-2.png" class="name-image"/>-->
           <img src="/images/watercolor-name2.png" class="name-image"/>
         </div>
       </div>
@@ -29,42 +28,42 @@
               </li>
             </ul>
 
-            <p>I'm currently a software developer at The Washington Post. I'm very goal oriented and I love building products that solve problems. Like so many millenials, I want to start my own company some day.</p>
+            <p>I'm currently a software developer at The Washington Post. I'm goal oriented and I love building products that solve problems. Like so many millenials, I want to start my own company some day.</p>
 
-            <p>If you want to give me a whole bunch of cash to start my company, or otherwise just contact me, fill out the <a link="" ng-click="">form</a> or shoot me an email at kerr.kelsey@gmail.com. </p>
+            <p>If you want to give me a whole bunch of cash to start my company, or otherwise just contact me, fill out the <a link="" class="form-link" data-ns-focus-id="inputName">form</a> or shoot me an email at kerr.kelsey@gmail.com. </p>
           </div>
           <div class="col-md-6 col-md-offset-1">
             <img class="nav-contact heading" src="/images/contact2.png"/>
 
-            <form ng-submit="home.submitEmail(contactForm)" name="contactForm" class="form-horizontal" role="form">
+            <form name="contactForm" class="form-horizontal" role="form">
               <div class="form-group">
                 <label for="inputName" class="col-md-2">Name</label>
 
                 <div class="col-md-10">
-                  <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName"
+                  <input ng-model="home.form.inputName" type="text" class="form-control" id="inputName" name="inputName"
                          placeholder="Your Name" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputEmail" class="col-md-2">Email</label>
+                <label for="inputSubject" class="col-md-2">Subject</label>
 
                 <div class="col-md-10">
-                  <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail"
-                         name="inputEmail" placeholder="Your Email" required>
+                  <input ng-model="home.form.inputSubject" class="form-control" id="inputSubject"
+                         name="inputSubject" placeholder="Email Subject" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputMessage" class="col-md-2">Message</label>
 
                 <div class="col-md-10">
-                  <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage"
+                  <textarea ng-model="home.form.inputMessage" class="form-control" rows="4" id="inputMessage"
                             name="inputMessage" placeholder="Your message..." required></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                  <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
-                    Send Message
+                  <button class="btn btn-default" ng-click="home.submitEmail()" ng-disabled="!home.isFormValid()">
+                    Create Message
                   </button>
                 </div>
               </div>
@@ -132,11 +131,4 @@
     </div>
   </div>
 </section> -->
-
-<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-<div class="scroll-top page-scroll visible-xs visble-sm">
-  <a class="btn btn-primary" href="#page-top">
-    <i class="fa fa-chevron-up"></i>
-  </a>
-</div>
 </div>

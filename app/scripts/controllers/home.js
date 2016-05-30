@@ -84,9 +84,20 @@ angular.module('personalWebsiteApp')
 
   })
 
+  .directive('nsFocusId', ['$timeout', function($timeout) {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        element.click(function() {
+          $timeout(function () { $('#' + attrs.nsFocusId).focus(); }, 0);
+        });
+      }
+    };
+  }])
 
 
-  .controller('HomeCtrl', function ($scope, $location, anchorSmoothScroll, $http) {
+
+  .controller('HomeCtrl', function ($scope, $location, anchorSmoothScroll, $http, $window) {
 
     $scope.scrollTo = function (id) {
       $location.hash(id);
@@ -95,40 +106,41 @@ angular.module('personalWebsiteApp')
 
     $scope.home = {
 
-      goToForm: function() {
+      formFocus: false,
 
+      form: {
+        inputName: '',
+        inputSubject: '',
+        inputMessage: ''
+      },
+
+      goToForm: function() {
+        $scope.home.formFocus = true;
+      },
+
+      isFormValid: function() {
+        if ($scope.home.form.inputName === null || $scope.home.form.inputName === undefined || $scope.home.form.inputName.length < 1) {
+          return false;
+        } else if ($scope.home.form.inputSubject === null || $scope.home.form.inputSubject === undefined || $scope.home.form.inputSubject.length < 1) {
+          return false;
+        } else if ($scope.home.form.inputMessage === null || $scope.home.form.inputMessage === undefined || $scope.home.form.inputMessage.length < 1) {
+          return false;
+        } else {
+          return true;
+        }
       },
 
       submitted: false,
 
       submitButtonDisabled: false,
 
-      submitEmail: function(contactForm) {
+      submitEmail: function() {
         $scope.home.submitted = true;
-        $scope.home.submitButtonDisabled = true;
-        if (contactForm.$valid) {
-          $http({
-            method  : 'POST',
-            url     : 'http://localhost:5000/php/contact-form.php',
-            data    : contactForm,  //param method from jQuery
-            headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-          }).success(function(data){
-            console.log(data);
-            if (data.success) { //success comes from the return json object
-              $scope.home.submitButtonDisabled = true;
-              $scope.home.resultMessage = data.message;
-              $scope.home.result='bg-success';
-            } else {
-              $scope.home.submitButtonDisabled = false;
-              $scope.home.resultMessage = data.message;
-              $scope.home.result='bg-danger';
-            }
-          });
-        } else {
-          $scope.submitButtonDisabled = false;
-          $scope.resultMessage = 'Failed :(  Please fill out all the fields.';
-          $scope.result='bg-danger';
-        }
+        $window.open('mailto:kerr.kelsey@gmail.com' + "?subject=" + $scope.home.form.inputSubject +
+        '&body=' + $scope.home.form.inputMessage + '\n\n - ' + $scope.home.form.inputName, '_self');
+        $scope.home.form.inputName = '';
+        $scope.home.form.inputSubject = '';
+        $scope.home.form.inputMessage = '';
       }
     };
 
